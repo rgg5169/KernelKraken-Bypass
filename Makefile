@@ -2,7 +2,7 @@ obj-m := KernalKraken.o
 
 all:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
-	go build init-patch.go
+	gcc -o init-patch init-patch.c
 
 clean:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
