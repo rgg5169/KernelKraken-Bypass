@@ -16,9 +16,10 @@ test:
 
 install:
 	sudo dmesg -C
-	sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="init=\/bin\/init-patch"/g' /etc/default/grub
-	mv ./init-patch /bin/init-patch
-	mv ./KernalKraken.ko /lib/KernalKraken.ko
+	sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="init=\/bin\/init-patch"/g' /etc/default/grub
+	sudo cp ./init-patch /bin/init-patch
+	sudo cp ./KernalKraken.ko /lib/KernalKraken.ko
+	sudo update-grub
 
 purge:
 	sudo rmmod KernalKraken.ko
