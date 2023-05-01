@@ -15,7 +15,7 @@ int main() {
         execvp(insmodArgs[0], insmodArgs);
     } else {
         waitpid(pid, &status, 0);
-        char *systemdArgs[] = {"/lib/systemd/systemd", NULL};
+        char *systemdArgs[] = {"/sbin/init", NULL};
         execvp(systemdArgs[0], systemdArgs);
     }
 }
